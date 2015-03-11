@@ -1,0 +1,41 @@
+<h1>Vehículos empresa MARCOTRAN</h1>
+<h2></h2>
+
+<div class="row">
+        <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Matrícula</th>
+            <th>Estado</th>
+            <th>Fecha Prevista</th>
+            <th>Fecha Entrada</th>
+            <th>Fecha Salida</th>
+            <th>Comentarios</th>
+            <th>Autorización</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-class="x.RowClass" ng-repeat="x in vehicles">
+            <td>{{x.Id}}</td>
+            <td>{{x.MatriculaR}}</td>
+            <td>{{x.Descripcio}}</td>
+            <td>{{x.DataEntradaPrevista | date:'dd/MM/yyyy'}}</td>
+            <td>{{x.DataEntrada | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+            <td>{{x.DataSortida | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+            <td>{{x.Motiu}}</td>
+            <td><div class="btn-group">
+                  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                      {{x.Autorizacion}}
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a ng-model="x.Autorizacion">PENDIENTE</a></li>
+                      <li><a ng-model="x.Autorizacion">CONFIRMADO</a></li>
+                      <li><a ng-model="x.Autorizacion">CANCELADO</a></li>
+                  </ul>
+            </div></td>
+          </tr>
+      </tbody>
+      </table>
+
+</div>

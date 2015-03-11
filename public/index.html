@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="es">
+<head>
+    <title>MasterASP</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./images/car.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-sanitize.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
+    <script src="./javascripts/mylib.js"></script>
+ </head>
+
+<body ng-controller="mainController">
+
+<div class="container">
+
+    <div class="row">
+
+        <nav class="navbar navbar-default">
+           <div class="container-fluid">
+               <ul class="nav navbar-nav">
+                   <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+                   <li ui-sref-active="active"><a ui-sref="vehicles">Vehículos</a></li>
+               </ul>
+           </div>
+        </nav>
+        <div ui-view></div>
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>
