@@ -20,6 +20,6 @@ router.get('/api/vehicles', function(req, res, next) {
     });
 });
 
-hola que tal como va
+hola que tal como va convertTimezone()
 
 module.exports = router;
