@@ -1,6 +1,30 @@
-<h1>Vehículos empresa MARCOTRAN</h1>
-<h2></h2>
+<h2>Vehículos empresa MARCOTRAN</h2>
 
+<h2>&nbsp;</h2>
+<div class="row">
+    <form class="form-inline" role="form">
+    	<legend>Parámetros de búsqueda</legend>
+    	<div class="form-group">
+            <label for="operador">Operador:</label>
+            <input type="operador" class="form-control" id="operador" placeholder="Introducir ID operator" ng-model="companyId">
+        <div class="form-group">
+            <label for="matricula">Matrícula:</label>
+            <input type="matricula" class="form-control" id="matricula" placeholder="Introducir matrícula" ng-model="plate">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" ng-click="getVisits()">Consultar</button>
+    	</div>
+            <div class="form-group">
+                <label for="visita">Visita:</label>
+                <input type="visita" class="form-control" id="visita" placeholder="Introducir ID visita" ng-model="currentVisit">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" ng-click="modifyVisit()">Modificar</button>
+            </div>
+        </div>
+    </form>
+</div>
+<h2>&nbsp;</h2>
 <div class="row">
         <table class="table">
         <thead>
@@ -11,30 +35,32 @@
             <th>Fecha Prevista</th>
             <th>Fecha Entrada</th>
             <th>Fecha Salida</th>
-            <th>Comentarios</th>
+            <th>Zona</th>
+            <th>Comentario Cliente</th>
             <th>Autorización</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-class="x.RowClass" ng-repeat="x in vehicles">
-            <td>{{x.Id}}</td>
-            <td>{{x.MatriculaR}}</td>
-            <td>{{x.Descripcio}}</td>
-            <td>{{x.DataEntradaPrevista | date:'dd/MM/yyyy'}}</td>
-            <td>{{x.DataEntrada | date:'dd/MM/yyyy hh:mm:ss'}}</td>
-            <td>{{x.DataSortida | date:'dd/MM/yyyy hh:mm:ss'}}</td>
-            <td>{{x.Motiu}}</td>
+          <tr ng-class="getRowClass(x)" ng-repeat="x in visits">
+            <td>{{x.id}}</td>
+            <td>{{x.plate}}</td>
+            <td>{{x.state}}</td>
+            <td>{{x.expectedDate | date:'dd/MM/yyyy'}}</td>
+            <td>{{x.entranceDate | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+            <td>{{x.exitDate | date:'dd/MM/yyyy hh:mm:ss'}}</td>
+            <td>{{x.zone}}</td>
+            <td>{{x.clientComments}}</td>
             <td><div class="btn-group">
                   <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                      {{x.Autorizacion}}
+                      {{autText[x.authStatus]}}
                   </a>
-                  <ul class="dropdown-menu">
-                      <li><a ng-model="x.Autorizacion">PENDIENTE</a></li>
-                      <li><a ng-model="x.Autorizacion">CONFIRMADO</a></li>
-                      <li><a ng-model="x.Autorizacion">CANCELADO</a></li>
+                  <ul class="dropdown-menu" ng-model="x.Autoritzacio">
+                      <li><a href="#">{{autText[0]}}</a></li>
+                      <li><a href="#">{{autText[1]}}</a></li>
+                      <li><a href="#">{{autText[2]}}</a></li>
                   </ul>
             </div></td>
-          </tr>
+            </tr>
       </tbody>
       </table>
 
